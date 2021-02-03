@@ -15,14 +15,7 @@ class CreateManagersTable extends Migration
     {
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
-            
-            $table->string('name');
-            $table->string('contact');
-            $table->string('gender');
-            $table->string('department');
-            $table->string('email');
-            $table->string('password');
-            $table->string('role');
+            $table->foreignID('user_id');
             $table->timestamps();
         });
     }

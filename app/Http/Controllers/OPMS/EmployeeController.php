@@ -22,7 +22,6 @@ class EmployeeController extends Controller
     }
     public function EmployeeFormSubmit(Request $request)
     {
-        dd($request->all());
         $users = User::create([
             
             'name'=>$request->input('name'),
@@ -34,6 +33,12 @@ class EmployeeController extends Controller
             'role'=>$request->input('role')
         ]);
 
+           Employee::create([
+            'user_id'=>$users->id,
+            'designation'=>$request->input('designation'),
+            
+            ]);
+           
 
         return redirect()->route('employee.list');
     }
@@ -50,7 +55,7 @@ class EmployeeController extends Controller
     }
     public function ManagerFormSubmit(Request $request)
     {
-        $managers = Manager::create([
+        $users = User::create([
             
             'name'=>$request->input('name'),
             'contact'=>$request->input('contact'),
@@ -59,6 +64,9 @@ class EmployeeController extends Controller
             'email'=>$request->input('email'),
             'password'=>bcrypt($request->password),
             'role'=>$request->input('role')
+        ]);
+        Manager::create([
+            'user_id'=>$users->id,
         ]);
         return redirect()->route('manager.list');
 

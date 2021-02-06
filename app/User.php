@@ -16,6 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $guarded=[];
+    
     public function departmentempRelation()
     {
         return $this->belongsTo(Models\Department::class,'department_id','id');

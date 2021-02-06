@@ -2,7 +2,7 @@
 @section('main')
 
 <main class="app-content">
-<div class="row">
+    <div class="row">
         <div class="col-sm-12">
 
             <div class="card">
@@ -16,7 +16,7 @@
                             <div class="col-12">
                                 <h5 class="form-title"><span>Employee Information</span></h5>
                             </div>
-                          
+
 
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <div class="form-group" >
+                                <div class="form-group">
                                     <label>Gender</label>
                                     <select name="gender" class="form-control">
                                         <option>Select Gender</option>
@@ -51,17 +51,20 @@
                                     </select>
                                 </div>
                             </div>
+
                             <div class="col-12 col-sm-6">
-                                <div class="form-group" >
+                                <div class="form-group">
                                     <label>Department</label>
-                                    <select name="department" class="form-control">
+                                    <select name="department_id" class="form-control">
                                         <option>Select Department</option>
-                                        <option value="it">IT</option>
-                                        <option value="graphic">Graphic</option>
-                                        <option value="others">Others</option>
+                                        @foreach($departments as $department)
+                                        <option value="{{$department->id}}">{{$department->department_name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
+
+
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label>Email Address</label>
@@ -70,18 +73,18 @@
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                <label>Password</label>
-                                <div class="input-container-ko">
-                                    <input type="password" name="password" required class="form-control">
-                                    <i class="material-icons visibility">visibility_off</i>
+                                    <label>Password</label>
+                                    <div class="input-container-ko">
+                                        <input type="password" name="password" required class="form-control">
+                                        <i class="material-icons visibility">visibility_off</i>
+                                    </div>
                                 </div>
                             </div>
+                            <input type="hidden" name="role" value="employee">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
-                                <input type="hidden" name="role" value="employee">
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

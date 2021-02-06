@@ -45,17 +45,19 @@
                                     </select>
                                 </div>
                             </div>
+
                             <div class="col-12 col-sm-6">
-                                <div class="form-group" >
+                                <div class="form-group">
                                     <label>Department</label>
-                                    <select name="department" class="form-control">
+                                    <select name="department_id" class="form-control">
                                         <option>Select Department</option>
-                                        <option value="it">IT</option>
-                                        <option value="graphic">Graphic</option>
-                                        <option value="others">Others</option>
+                                        @foreach($departments as $department)
+                                        <option value="{{$department->id}}">{{$department->department_name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
+
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label>Email Address</label>

@@ -6,19 +6,22 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\Manager;
+use App\Models\Department;
 use App\User;
 
 class EmployeeController extends Controller
 {
     public function EmployeeList()
     {
-        return view('Employee.employeeList');
+        $users = User::with('departmentempRelation')->where('role','employee')->get();
+        return view('Employee.employeeList', compact('users'));
     }
 
     public function EmployeeForm()
     {
         $employees = Employee::all();
-        return view('Employee.employeeForm', compact('employees'));
+        $departments = Department::all();
+        return view('Employee.employeeForm', compact('employees','departments'));
     }
     public function EmployeeFormSubmit(Request $request)
     {
@@ -27,15 +30,16 @@ class EmployeeController extends Controller
             'name'=>$request->input('name'),
             'contact'=>$request->input('contact'),
             'gender'=>$request->input('gender'),
-            'department'=>$request->input('department'),
+            'department_id'=>$request->input('department_id'),
+            'designation'=>$request->input('designation'),
             'email'=>$request->input('email'),
             'password'=>bcrypt($request->input('password')),
             'role'=>$request->input('role')
         ]);
 
            Employee::create([
-            'user_id'=>$users->id,
-            'designation'=>$request->input('designation'),
+            'user_id'=>$users->id
+            
             
             ]);
            
@@ -46,12 +50,14 @@ class EmployeeController extends Controller
 
     public function ManagerList()
     {
-        return view('Manager.managerList');
+        $users = User::with('departmentmanRelations')->where('role','manager')->get();
+        return view('Manager.managerList', compact ('users'));
     }
     public function ManagerForm()
     {
         $managers = Manager::all();
-        return view('Manager.managerForm', compact('managers'));
+        $departments = Department::all();
+        return view('Manager.managerForm', compact('managers','departments'));
     }
     public function ManagerFormSubmit(Request $request)
     {
@@ -60,7 +66,7 @@ class EmployeeController extends Controller
             'name'=>$request->input('name'),
             'contact'=>$request->input('contact'),
             'gender'=>$request->input('gender'),
-            'department'=>$request->input('department'),
+            'department_id'=>$request->input('department_id'),
             'email'=>$request->input('email'),
             'password'=>bcrypt($request->password),
             'role'=>$request->input('role')

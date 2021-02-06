@@ -7,23 +7,23 @@
 
             <div class="card">
                 <div class="card-body">
-                    <form method="post" action="{{route('department.formsubmit')}}">
+                    <form method="post" action="#">
                         @csrf
                         <div class="row">
                             
                             <div class="col-12">
-                                <h5 class="form-title"><span>Department Information</span></h5>
+                                <h5 class="form-title"><span>Assign Project Information</span></h5>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Department Name</label>
-                                    <input type="string" name="department_name" required class="form-control">
+                                    <label>Project Name</label>
+                                    <input type="string" name="project_name" required class="form-control">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Department Description</label>
-                                    <textarea name="description" class="form-control"></textarea>
+                                    <label>Employee Name</label>
+                                    <input type="string" name="employee_name" required class="form-control">
                                 </div>
                             </div>
                             <div class="col-12">

@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('gender');
             $table->string('contact');
-            $table->string('department');
+            $table->string('department_id');
+            $table->string('designation')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

@@ -32,7 +32,13 @@ Route::post('/managerFormSubmit','OPMS\EmployeeController@ManagerFormSubmit')->n
 // Department Routing
 Route::get('/departmentList','OPMS\DepartmentController@departmentList')->name('department.list');
 Route::get('/departmentForm','OPMS\DepartmentController@departmentForm')->name('department.form');
+Route::post('/departmentFormSubmit','OPMS\DepartmentController@departmentFormSubmit')->name('department.formsubmit');
 
 // Project Routing
 Route::get('/projectList','OPMS\ProjectController@projectList')->name('project.list');
 Route::get('/projectForm','OPMS\ProjectController@projectForm')->name('project.form');
+Route::post('/projectFormSubmit','OPMS\ProjectController@projectFormSubmit')->name('project.formsubmit');
+
+// Assign Project
+Route::get('/project/assignProjectList','OPMS\ProjectController@assignProjectList')->name('assign.list');
+Route::get('/project/assignProjectForm','OPMS\ProjectController@assignProjectForm')->name('assign.projectform');

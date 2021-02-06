@@ -30,7 +30,7 @@
                     class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
                 <li><a class="treeview-item" href="{{route('project.list')}}"><i class="icon fa fa-circle-o"></i> Project List</a></li>
-                <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Assign Project List</a></li>
+                <li><a class="treeview-item" href="{{route('assign.list')}}"><i class="icon fa fa-circle-o"></i> Assign Project List</a></li>
             </ul>
         </li>
 

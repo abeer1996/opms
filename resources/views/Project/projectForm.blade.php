@@ -7,7 +7,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <form method="post" action="#">
+                    <form method="post" action="{{route('project.formsubmit')}}">
                         @csrf
                         <div class="row">
                             

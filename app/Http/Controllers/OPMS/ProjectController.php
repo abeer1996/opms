@@ -10,7 +10,8 @@ class ProjectController extends Controller
 {
     public function projectList()
     {
-        return view('Project.projectList');
+        $projects = Project::all();
+        return view('Project.projectList', compact('projects'));
     }
     public function projectForm()
     {

@@ -10,7 +10,8 @@ class DepartmentController extends Controller
 {
     public function departmentList()
     {
-        return view('Department.departmentList');
+        $departments = Department::all();
+        return view('Department.departmentList', compact('departments'));
     }
     public function departmentForm()
     {

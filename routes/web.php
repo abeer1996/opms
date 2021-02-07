@@ -24,7 +24,7 @@ Route::get('/', function () {
         Route::post('/login','OPMS\UserController@loginProcess')->name('login.process');
 
 
-        Route::group(['middleware'=>'auth'], function(){
+        Route::group(['middleware'=>['auth','CheckAdmin']], function(){
         
         Route::get('/admin', function(){
             return view('home');

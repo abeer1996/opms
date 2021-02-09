@@ -2,15 +2,15 @@
 @section('main')
 
 <main class="app-content">
-<div class="app-title">
+
+    <div class="app-title">
         <div>
-            <h1><i class="fa fa-th-list"></i> Assign Project List </h1>
+            <h1><i class="fa fa-th-list"></i> User Details </h1>
+
         </div>
     </div>
-    <a style="float: right" class="btn btn-primary" href="{{route('assign.projectform')}}">
-        Assign Project</a> <br><br><br>
-
-        <div class="row">
+   
+    <div class="row">
         <div class="col-md-12">
             <div class="tile">
                 <div class="tile-body">
@@ -18,18 +18,22 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Project Name</th>
-                                <th>Employee Name</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            @foreach($assignprojects as $key=>$assignproject)
+                            @foreach($users as $key=>$user)
                             <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$assignproject->ProjectRelation->project_name}}</td>
-                                <td>{{$assignproject->EmployeeRelation->name}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->contact}}</td>
+                                
                                 <td>
                                     <a class="btn btn-warning" href="#">Edit</a>
                                     <a class="btn btn-danger" href="">Delete</a>
@@ -44,7 +48,6 @@
             </div>
         </div>
     </div>
-
 
 
 </main>

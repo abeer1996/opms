@@ -5,6 +5,7 @@ namespace App\Http\Controllers\OPMS;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class UserController extends Controller
 {
@@ -38,5 +39,11 @@ class UserController extends Controller
     {
         Auth::logout();
         return redirect()->route('login');
+    }
+
+    public function UserList()
+    {
+        $users = User::all();
+        return view ('User.userList',compact('users'));
     }
 }

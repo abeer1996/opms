@@ -25,7 +25,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Models\Department::class,'department_id','id');
     }
-    
+   
 
     /**
      * The attributes that should be hidden for arrays.

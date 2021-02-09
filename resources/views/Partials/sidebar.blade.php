@@ -16,7 +16,7 @@
                     class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Registration</span><i
                     class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>User Info</a></li>
+                <li><a class="treeview-item" href="{{route('user.list')}}"><i class="icon fa fa-circle-o"></i>User Info</a></li>
 
                 <li><a class="treeview-item" href="{{route('employee.list')}}"><i
                             class="icon fa fa-circle-o"></i>Employee Registration</a></li>

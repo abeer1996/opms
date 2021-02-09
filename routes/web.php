@@ -39,6 +39,9 @@ Route::get('/', function () {
 
 
         Route::get('/','HomeController@dashboard')->name('dashboard');
+
+        // User Routing
+        Route::get('/UserList','UserController@UserList')->name('user.list');
     
         // Employee Routing
         Route::get('/employeeList','EmployeeController@EmployeeList')->name('employee.list');
@@ -63,7 +66,7 @@ Route::get('/', function () {
         // Assign Project
         Route::get('/project/assignProjectList','ProjectController@assignProjectList')->name('assign.list');
         Route::get('/project/assignProjectForm','ProjectController@assignProjectForm')->name('assign.projectform');
-    
+        Route::post('/project/assignProjectFormSubmit','ProjectController@assignProjectFormSubmit')->name('assignproject.formsubmit');
     });
 
 
